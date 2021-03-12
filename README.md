@@ -1,2 +1,2 @@
 # SSAlertToast
-![alert.gif](Alert.gif)
+![alert.gif](alert.gif)
