@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     @State var showToast: Bool = false
     var successAlert = SSAlertData(style: .success, message: "Success Toast", position: .bottom, toastTime: 3)
@@ -112,3 +114,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

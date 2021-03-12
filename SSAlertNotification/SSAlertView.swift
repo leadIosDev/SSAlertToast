@@ -57,7 +57,7 @@ struct SSAlertView: ViewModifier {
                     .background(
                         RoundedRectangle(cornerRadius: 20)
                             .fill(self.viewBackGroundColor)
-                            .shadow(color: Color.black.opacity(0.5), radius: 3, x: 0, y: 3)
+                            .shadow(color: Color.black.opacity(0.5), radius: 3, x: 0, y: data.position == .top ? 3: -3)
                            
                     )
                     .offset(y: self.animateView ? 0: data.position == .top ? -500: 500)
@@ -67,6 +67,9 @@ struct SSAlertView: ViewModifier {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal)
+                .padding(.top, safeArea.top <= 20 ? 10: 0)
+                .padding(.bottom, safeArea.bottom == 0 ? 25: 10)
+
                 .onTapGesture {
                     self.dismissView()
                 }
@@ -148,3 +151,6 @@ extension View {
         self.modifier(SSAlertView(show: show, data: data))
     }
 }
+
+
+let safeArea = UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
